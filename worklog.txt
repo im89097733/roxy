@@ -1,0 +1,42 @@
+------------------------------------------------SUNDAY-------------------------------------------------
+What I did for TriNimbus DB Infrastructure 
+=============================================
+1) Created a pulicly accessible RDS instance (roxyDB) in the TriNimbus account with a basic key, value  pair table called 'kv' in schema'sinmpleKV'
+2) Created a user account trinimbus/trinimbus with access to simpleKV
+3) Used MySQL Workbench to create the 'kv' table and populate it with some KV pairs
+
+
+What I did in dev
+====================
+1) Using an existing Eclipse/Java/Tomcat local dev environemnt
+2) Re-using a RESTTest.html javascript page that allows me to post JSON to a servlet (endpoint/API). Servlets coded in Java.
+3) Added a DBAccess.java class to manage access to the RDS instance (MySQL JDBC connection)
+4) Created a Query.java servlet that uses the DBAccess.java class (/query is the endpoint url)
+8) Tested the /query endpoint using RESTTest.html from my local dev server against the RDS
+
+
+What I did to get a base image
+===================================
+1) cloned an instance that I am using for another project
+2) Used RDP to strip dowm the application components from Tomcat
+3) added the driver for MySQL
+4) added my 2 java classes and the RESTTest.html and the supporting javascript code (already existed on base image, I wrote this code a few years ago)
+5) Added the public IP address of this prototype instance to the RDS sg inbound firewall
+6) Tested the App /query endpoint using RESTTest.html.  All good.
+7) Created AMI from this instance and made it public
+
+What I did for TriNimbus App Container
+===========================================
+1) Created instance from public AMI
+2) Opened access to RDS instance and onfirmed it still works against public RDS
+3) Created base AMI for deployments
+------------------------------------------------MONDAY------------------------------------------------------
+4) Created VPC with 2 availability zones
+5) Bound RDS to the VPC and closed firewall for only access from the VPC / SG for demo
+6) confirmed App works from mulitiple zones when launched with SG
+6) Created an 2 ASG for Target Group for 2 different AZs
+7) Setup unsecured ELB with Target Group
+8) Tested App from Web and it works
+9) create a certificate for trinimbus.andress.ca and install on ELB for SSL
+------------------ STUCK... seems to be permission issues for both creating ACM certificates and importing PEM ------------------------
+10) Tested App from Web for HTTPS
