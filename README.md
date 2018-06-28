@@ -52,7 +52,9 @@ Intentionally light on development instructions.  In order to modify and build t
 
 DEPLOYMENT
 ===============================
-Requires AWS CLI installed with appropriate access keys installed
+Requires AWS CLI installed with appropriate access keys installed.
+Generally, to modify any of the scripts, the associated parameters file .json should be edited as a first effort.
+E.g. _1newTestInstance.sh uses _1input.json.
 
 Application
 ------------

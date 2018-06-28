@@ -1,0 +1,19 @@
+{
+  "DryRun": false,
+  "ImageId": "ami-0115477e",
+  "InstanceType": "t2.micro",
+  "SecurityGroupIds": [
+    "sg-5098021b"
+  ],
+  "KeyName": "roxyKeyPair",
+  "SubnetId": "subnet-e6993dc8",
+  "InstanceInitiatedShutdownBehavior": "stop",
+  "NetworkInterfaces": [
+    {
+      "AssociatePublicIpAddress": true,
+      "DeleteOnTermination": true,
+      "Description": "Public Access for MSTSC deploy test",
+      "DeviceIndex": 0
+    }
+  ]
+}

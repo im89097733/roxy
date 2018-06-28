@@ -1,0 +1,9 @@
+{
+  "InstanceId": "**** take from _1.res ****",
+
+  "Description": "The head base AMI for roxy demo",
+  "DryRun": false,
+
+  "Name": "roxyDemo_v2",
+  "NoReboot": false
+}

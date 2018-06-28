@@ -1,0 +1,23 @@
+{
+    "BlockDeviceMappings": [
+        {
+            "DeviceName": "", 
+            "VirtualName": "", 
+            "Ebs": {
+                "Encrypted": true, 
+                "DeleteOnTermination": true, 
+                "Iops": 0, 
+                "KmsKeyId": "", 
+                "SnapshotId": "", 
+                "VolumeSize": 0, 
+                "VolumeType": "standard"
+            }, 
+            "NoDevice": ""
+        }
+    ], 
+    "Description": "The head base AMI for roxy demo",
+    "DryRun": true, 
+
+    "Name": "roxyDemo_v",
+    "NoReboot": true
+}
