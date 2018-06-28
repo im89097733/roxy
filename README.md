@@ -52,22 +52,24 @@ Intentionally light on development instructions.  In order to modify and build t
 
 DEPLOYMENT
 ===============================
+Requires AWS CLI installed with appropriate access keys installed
+
 Application
 ------------
-1) Create an instance from the AMI with the same SG (sg-5098021b (roxyEC2SG)),
-2) update the .class files or HTML as desired
-3) test that the code works
-4) create a new AMI from this instance
-5) modify the LC for the ASGs to refer to the new AMI
+1) Create an instance from the AMI with the same SG (sg-5098021b (roxyEC2SG)) and public IP (script),
+2) update the .class files or HTML as desired (using MSTSC for Windows Container)
+3) test that the code works (using local chrome browser localhost:8080/RESTTest.html
+4) create a new AMI from this instance (script)
+5) modify the LC for the ASGs to refer to the new AMI (script)
 6) kill existing instances to force update as desired
 
 Infrastructure
 --------------
-1) run VPC create
-2) run RDS build and deploy to VPC
-3) run TG build and deploy to VPC
-4) run ASG/LC build and deploy to VPC and bind to TG
-5) run ELB build and deploy to VPC and bind to TG
+1) run VPC create (script)
+2) run RDS build and deploy to VPC (script)
+3) run TG build and deploy to VPC (script)
+4) run ASG/LC build and deploy to VPC and bind to TG (script)
+5) run ELB build and deploy to VPC and bind to TG (script)
 6) DNS mods and apply certs to ELB
 
 
