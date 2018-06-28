@@ -4,14 +4,14 @@ CONTENTS
 ==========
 - OVERVIEW
 - ARCHITECTURE
-    Nomenclature
-    RDS
-    Container(s) and Application
-    Network and Security
+    - Nomenclature
+    - RDS
+    - Container(s) and Application
+    - Network and Security
 - DEVELOPMENT
 - DEPLOYMENT
-    Application
-    Infrastructure
+    - Application
+    - Infrastructure
 - KNOWN ISSUES
 
 OVERVIEW
