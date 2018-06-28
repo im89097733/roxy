@@ -2,17 +2,17 @@
 
 CONTENTS
 ==========
-OVERVIEW
-ARCHITECTURE
+- OVERVIEW
+- ARCHITECTURE
     Nomenclature
     RDS
     Container(s) and Application
     Network and Security
-DEVELOPMENT
-DEPLOYMENT
+- DEVELOPMENT
+- DEPLOYMENT
     Application
     Infrastructure
-KNOWN ISSUES
+- KNOWN ISSUES
 
 OVERVIEW
 ===========
