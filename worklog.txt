@@ -45,3 +45,5 @@ What I did for TriNimbus App Container
 1) created git
 2) writing readme.md
 3) creating various deploy scripts
+
+Almost done app deploy scripts.  Will pick up again next week to finish app and infrastructure deploy scripts
