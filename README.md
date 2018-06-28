@@ -75,6 +75,6 @@ Infrastructure
 
 KNOWN ISSUES
 =============
-The endpoint target is trinimbus.andress.ca/RESTTest.html and it works on HTTP
+The endpoint target is trinimbus.andress.ca/RESTTest.html and it works on HTTP. 
 The account provided in the sandbox does not seem to have permissions to create a CERT on the ELB.
 So the app does not currently work on HTTPS
