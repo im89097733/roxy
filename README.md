@@ -54,7 +54,7 @@ DEPLOYMENT
 ===============================
 Requires AWS CLI installed with appropriate access keys installed.
 Generally, to modify any of the scripts, the associated parameters file .json should be edited as a first effort.
-E.g. _1newTestInstance.sh uses _1input.json.
+E.g. _1newTestInstance.sh uses _1input.json and produces _1.res
 
 Application
 ------------

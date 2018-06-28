@@ -1,6 +1,7 @@
-.idea
-.skel
-.res
+*.idea
+*.skel
+*.res
+*.pem
 config.json
 node_modules
 npm-debug.log
