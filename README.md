@@ -61,7 +61,7 @@ Prerequisites
 Bootstrap
 ----------
 1) navigate to the parent directory of this readme in a bash cli
-2) modify the values in setenv.sh as desired for your target architecture
+2) optionally modify the values in setenv.sh as desired for your target architecture
 3) run '. ./setenv.sh' from command line to setup env variables
 4) follow instructions for 'Application' or 'Infrastructure'
 

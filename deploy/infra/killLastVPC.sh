@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+trap "echo Error; exit" ERR
 export VPC_ID=$(cat lastVPC.res | ../../tools/jsonX.sh Vpc.VpcId)
 export SUBNET_1=$(cat lastSubNet1.res | ../../tools/jsonX.sh Subnet.SubnetId)
 export SUBNET_2=$(cat lastSubNet2.res | ../../tools/jsonX.sh Subnet.SubnetId)
