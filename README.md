@@ -23,6 +23,7 @@ This is a repo that contains code and scripts and docs for a demo for TriNimbus
     - Query.java is a servlet that provides the web interface (JSON payload to /query)
     - DBAccess.java provides RDS access for the servlet.
 - /deploy contains AWS CLI deploy scripts
+- /tools contains a little java.jar utility called jsonX used to easily integrate bash to json payloads from aws cli responses.  It gets used extensively in the bash scripts
 - worklog.txt is a diary of work that was done to get this pulled together
 
 
@@ -60,8 +61,7 @@ Prerequisites
 
 Bootstrap
 ----------
-1) navigate to the parent directory of this readme in a bash cli
-2) optionally modify the values in setenv.sh as desired for your target architecture
+1) from /TriNimbus/, optionally modify the values in setenv.sh as desired for your target architecture
 3) run '. ./setenv.sh' from command line to setup env variables
 4) follow instructions for 'Application' or 'Infrastructure'
 
@@ -78,15 +78,13 @@ To make changes to the application and deploy to existing infrastructure, follow
 
 Infrastructure
 --------------
-To create a new infrastructure space either for staging or prod, follow these steps.
+To create a new infrastructure space either for staging or prod, follow these steps:.
 
-1) create a new VPC with 'newVPC.sh'
-2) optionally run RDS build and deploy to VPC (script)
-3) create a target group in the new VPC with 'newTG.sh'
-4) create ASG/LC build and deploy to VPC and bind to TG with 'newASG.sh'
-5) create ELB build and deploy to VPC and bind to TG with 'newELB.sh'
-6) DNS mods and apply certs to ELB
+1) from /TriNimbus/deploy/infra/ run './createAll.sh' to build a complete infrastructure
 
+To tear down the entire infrastructure:
+
+1) from /TriNimbus/deploy/infra/ run './deleteAll.sh' to clean AWS of the last infrastructure
 
 KNOWN ISSUES
 =============
