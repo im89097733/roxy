@@ -28,7 +28,7 @@ What I did to get a base image
 What I did for TriNimbus App Container
 ===========================================
 1) Created instance from public AMI
-2) Opened access to RDS instance and onfirmed it still works against public RDS
+2) Opened access to RDS instance and confirmed it still works against public RDS
 3) Created base AMI for deployments
 ------------------------------------------------MONDAY------------------------------------------------------
 4) Created VPC with 2 availability zones
@@ -46,4 +46,8 @@ What I did for TriNimbus App Container
 2) writing readme.md
 3) creating various deploy scripts
 
-Almost done app deploy scripts.  Will pick up again next week to finish app and infrastructure deploy scripts
+------------------------------- TUESDAY -------------------------------------------
+- almost done full infrastructure script build out.
+- almost done full teardown scipt (killLastVPC.sh)
+- Still need to script deploying RDS into the VPC.
+- Still need to revisit CERT issues

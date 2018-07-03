@@ -90,6 +90,8 @@ To create a new infrastructure space either for staging or prod, follow these st
 
 KNOWN ISSUES
 =============
-The endpoint target is trinimbus.andress.ca/RESTTest.html and it works on HTTP.
+1) The endpoint target is trinimbus.andress.ca/RESTTest.html and it works on HTTP.
 The account provided in the sandbox does not seem to have permissions to create a CERT on the ELB.
 So the app does not currently work on HTTPS
+
+2) there is some resource sprawl as I have been testing the scripts and since the kill script does not yet comprehensively cleanup the VPC trail
