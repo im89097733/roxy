@@ -52,26 +52,39 @@ Intentionally light on development instructions.  In order to modify and build t
 
 DEPLOYMENT
 ===============================
-Requires AWS CLI installed with appropriate access keys installed.
-Generally, to modify any of the scripts, the associated parameters file .json should be edited as a first effort.
-E.g. _1newTestInstance.sh uses _1input.json and produces _1.res
+Prerequisites
+----------------
+- Requires AWS CLI installed with appropriate access keys installed.
+- Requires JRE
+- bash (git bash)
+
+Bootstrap
+----------
+1) navigate to the parent directory of this readme in a bash cli
+2) modify the values in setenv.sh as desired for your target architecture
+3) run '. ./setenv.sh' from command line to setup env variables
+4) follow instructions for 'Application' or 'Infrastructure'
 
 Application
 ------------
-1) Create an instance from the AMI with the same SG (sg-5098021b (roxyEC2SG)) and public IP (script),
+To make changes to the application and deploy to existing infrastructure, follow these steps.
+
+1) Create an instance from the AMI ${ROXY_BASE_AMI} with 'newInstance.sh'
 2) update the .class files or HTML as desired (using MSTSC for Windows Container)
 3) test that the code works (using local chrome browser localhost:8080/RESTTest.html
-4) create a new AMI from this instance (script)
-5) modify the LC for the ASGs to refer to the new AMI (script)
+4) create a new AMI from this instance with 'newAMI.sh'
+5) modify the LC for the ASGs to refer to the new AMI with 'updateLC.sh'
 6) kill existing instances to force update as desired
 
 Infrastructure
 --------------
-1) run VPC create (script)
-2) run RDS build and deploy to VPC (script)
-3) run TG build and deploy to VPC (script)
-4) run ASG/LC build and deploy to VPC and bind to TG (script)
-5) run ELB build and deploy to VPC and bind to TG (script)
+To create a new infrastructure space either for staging or prod, follow these steps.
+
+1) create a new VPC with 'newVPC.sh'
+2) optionally run RDS build and deploy to VPC (script)
+3) create a target group in the new VPC with 'newTG.sh'
+4) create ASG/LC build and deploy to VPC and bind to TG with 'newASG.sh'
+5) create ELB build and deploy to VPC and bind to TG with 'newELB.sh'
 6) DNS mods and apply certs to ELB
 
 
