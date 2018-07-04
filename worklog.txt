@@ -48,6 +48,10 @@ What I did for TriNimbus App Container
 
 ------------------------------- TUESDAY -------------------------------------------
 - almost done full infrastructure script build out.
-- almost done full teardown scipt (killLastVPC.sh)
+- almost done full teardown script (killLastVPC.sh)
 - Still need to script deploying RDS into the VPC.
 - Still need to revisit CERT issues
+
+------------------------------------ WEDNESDAY ------------------------------------
+- finish full create
+- finish full teardown

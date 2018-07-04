@@ -40,7 +40,7 @@ RDS is running MySQL compatible Aurora DB.  This was deployed to a single zone i
 Container(s) and Application
 ------------------
 There is a two-tiered container:
-1) an AMI is available (roxyTriNimbusDemo2:ami-0115477e) in the sandbox.  This AMI is a Windows Server configured to run a Tomcat Container Service (hosting Java servlets)
+1) an AMI is available (roxyDemoV3:ami-e9dd8596) in the sandbox.  This AMI is a Windows Server configured to run a Tomcat Container Service (hosting Java servlets)
 2) a Tomcat Server that is portable across OSs making it very easy to port to a Linux platform.  This Tomcat server auto-starts and auto-deploys the Query servlet.  This server also makes available /RESTTest.html which is generically capable of making POSTs to endpoints (servlet/urls) with JSON payload. See "running the app" below.
 
 Network and Security
@@ -93,3 +93,5 @@ The account provided in the sandbox does not seem to have permissions to create 
 So the app does not currently work on HTTPS
 
 2) there is some resource sprawl as I have been testing the scripts and since the kill script does not yet comprehensively cleanup the VPC trail
+
+3) the RDS build script is not created yet.  so this app will not actually work end-end because there is neither a new RDS in the new VPC nor a route from the new VPC to the initial RDS.  If you were to put a new RDS in the new VPC the code in DBAccess.java would need to be modified to point to the new RDS.  Or, alternatively, leave the code as is and configure a route between the new VPC and the initial RDS.
