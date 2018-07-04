@@ -12,6 +12,7 @@ CONTENTS
 - DEPLOYMENT
     - Application
     - Infrastructure
+- RUNNING THE APP
 - KNOWN ISSUES
 
 OVERVIEW
@@ -86,12 +87,26 @@ To tear down the entire infrastructure:
 
 1) from /TriNimbus/deploy/infra/ run './deleteAll.sh' to clean AWS of the last infrastructure
 
+RUNNING THE APP
+==================
+The web application is a simple javascript utility page that allows you to post json to arbitrary uri (servlets).
+The main entry point is /RESTTest.html.
+
+1) From the main page enter the uri '/query' in the URL field.
+2) In the Payload section edit the json to look like this:
+```jacascript
+{
+pkey:# // where pkey is an integer value (by default there are only a few values in the database)
+}
+```
+3) Press 'Submit' and the results will appear in the bottom pane.
+
 KNOWN ISSUES
 =============
-1) The endpoint target is trinimbus.andress.ca/RESTTest.html and it works on HTTP.
+1) The modeled endpoint target is trinimbus.andress.ca/RESTTest.html and it works on HTTP.
 The account provided in the sandbox does not seem to have permissions to create a CERT on the ELB.
 So the app does not currently work on HTTPS
 
-2) there is some resource sprawl as I have been testing the scripts and since the kill script does not yet comprehensively cleanup the VPC trail
+2) there is some resource sprawl as I have been testing the scripts and since the kill script does not yet comprehensively cleanup the VPC trail. I believe Target Groups and Launch Configurations are sprawling currently.
 
 3) the RDS build script is not created yet.  so this app will not actually work end-end because there is neither a new RDS in the new VPC nor a route from the new VPC to the initial RDS.  If you were to put a new RDS in the new VPC, the code in DBAccess.java would need to be modified to point to the new RDS.  Or, alternatively, leave the code as is and configure a route between the new VPC and the initial RDS.
