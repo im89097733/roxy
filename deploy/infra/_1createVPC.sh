@@ -14,6 +14,10 @@ elbsg_name='roxyELBSG-'$name_suffix
 aws ec2 create-security-group --description "script generated elb security group for roxy" --group-name $elbsg_name --vpc-id $VPC_ID > lastELBSG.res
 export ELBSG_ID=$(cat lastELBSG.res | ../../tools/jsonX.sh GroupId)
 echo "Created ELBSG "$ELBSG_ID
+echo "Opening ELBSG to the world on port 80"
+aws ec2 authorize-security-group-ingress --group-id $ELBSG_ID --port 80 --protocol tcp --cidr 0.0.0.0/0 > lastELB80Ingress.res
+echo "Opening ELBSG to the world on port 443"
+aws ec2 authorize-security-group-ingress --group-id $ELBSG_ID --port 443 --protocol tcp --cidr 0.0.0.0/0 > lastELB443Ingress.res
 echo "Creating EC2SG"
 ec2sg_name='roxyEC2SG-'$name_suffix
 aws ec2 create-security-group --description "script generated instance security group for roxy" --group-name $ec2sg_name --vpc-id $VPC_ID  > lastEC2SG.res
