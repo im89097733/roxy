@@ -3,9 +3,12 @@ trap "echo Likely problem is that ASG or ELB must terminate completely before ki
 export VPC_ID=$(cat lastVPC.res | ../../tools/jsonX.sh Vpc.VpcId)
 export SUBNET_1=$(cat lastSubNet1.res | ../../tools/jsonX.sh Subnet.SubnetId)
 export SUBNET_2=$(cat lastSubNet2.res | ../../tools/jsonX.sh Subnet.SubnetId)
+#TODO I think the main routing table needs to be deleted as well before the subnets can be removed
+#TODO I also think the IG needs to be deleted before as well
 echo "killing subnets"
 aws ec2 delete-subnet --subnet-id $SUBNET_1
 aws ec2 delete-subnet --subnet-id $SUBNET_2
 echo "killing the VPC_ID="$VPC_ID
+
 aws ec2 delete-vpc --vpc-id $VPC_ID
 echo "VPC_ID="$VPC_ID" deleted"

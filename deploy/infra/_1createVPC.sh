@@ -38,6 +38,8 @@ export IG_ID=$(cat lastIG.res | ../../tools/jsonX.sh InternetGateway.InternetGat
 echo "Created IG "$IG_ID
 echo "Binding IG to VPC"
 aws ec2 attach-internet-gateway --internet-gateway-id $IG_ID --vpc-id $VPC_ID #> lastIGAttach.res
+echo "Adding IG to main VPC routing"
+
 echo "Done. All new VPC."
 echo "Attempting to add ingress on original RDS: "$ROXY_BASE_DBSG
 aws ec2 authorize-security-group-ingress --group-id $ROXY_BASE_DBSG --port 3306 --protocol tcp --source-group $EC2SG_ID > lastBaseRDSIngress.res
