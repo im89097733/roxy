@@ -13,7 +13,7 @@ export lb_arn=$(cat lastELB.res | ../../tools/jsonX.sh LoadBalancers.[0].LoadBal
 echo "Created ELB->"$lb_arn
 echo "Creating and binding Listener(s) to LB"
 echo "HTTP"
-aws elbv2 create-listener --load-balancer-arn $lb_arn --protocol HTTP --port 80 --default-actions Type=forward,TargetGroupArn=tg_arn > lastHHTPListener.res
+aws elbv2 create-listener --load-balancer-arn $lb_arn --protocol HTTP --port 80 --default-actions Type=forward,TargetGroupArn=$tg_arn > lastHHTPListener.res
 echo "Created HTTP listener"
 # TODO add the HTTPS listener
 echo "Done."
