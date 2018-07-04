@@ -93,5 +93,5 @@ The account provided in the sandbox does not seem to have permissions to create 
 So the app does not currently work on HTTPS
 
 2) there is some resource sprawl as I have been testing the scripts and since the kill script does not yet comprehensively cleanup the VPC trail
-
-3) the RDS build script is not created yet.  so this app will not actually work end-end because there is neither a new RDS in the new VPC nor a route from the new VPC to the initial RDS.  If you were to put a new RDS in the new VPC the code in DBAccess.java would need to be modified to point to the new RDS.  Or, alternatively, leave the code as is and configure a route between the new VPC and the initial RDS.
+ 
+3) the RDS build script is not created yet.  so this app will not actually work end-end because there is neither a new RDS in the new VPC nor a route from the new VPC to the initial RDS.  If you were to put a new RDS in the new VPC, the code in DBAccess.java would need to be modified to point to the new RDS.  Or, alternatively, leave the code as is and configure a route between the new VPC and the initial RDS.
