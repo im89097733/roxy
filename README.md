@@ -101,12 +101,10 @@ pkey:# // where pkey is an integer value (by default there are only a few values
 ```
 3) Press 'Submit' and the results will appear in the bottom pane.
 
-KNOWN ISSUES
+NOTES/KNOWN ISSUES
 =============
-1) The modeled endpoint target is trinimbus.andress.ca/RESTTest.html and it works on HTTP.
-The account provided in the sandbox does not seem to have permissions to create a CERT on the ELB.
-So the app does not currently work on HTTPS
+1) The modeled endpoint target is trinimbus.andress.ca/RESTTest.html and it works on HTTP. The scripted VPC's ELB will also work on HTTP.  A Cert is not scripted for the ELB and so HTTPS does not currently work.
 
 2) there is some resource sprawl as I have been testing the scripts and since the kill script does not yet comprehensively cleanup the VPC trail. I believe Target Groups and Launch Configurations are sprawling currently.
 
-3) the RDS build script is not created yet.  so this app will not actually work end-end because there is neither a new RDS in the new VPC nor a route from the new VPC to the initial RDS.  If you were to put a new RDS in the new VPC, the code in DBAccess.java would need to be modified to point to the new RDS.  Or, alternatively, leave the code as is and configure a route between the new VPC and the initial RDS.
+3) the RDS build scripts work to create a clone of the model for use in the scripted VPC.  However, it is turned off (commented out) because the test account does not have permissions for more than one db instance.  Instead the instances are launched with public IP addresses and the model RDS is open. With proper permissions to create a RDS clone, the code in DBAccess.java would need to be modified to point to the new RDS within the VPC. Of course there are a few options here depending on requirements such as NATed gateway control from the scripted VPC to the single RDS or setting up a peered VPC connection.

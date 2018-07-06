@@ -42,6 +42,3 @@ aws ec2 attach-internet-gateway --internet-gateway-id $IG_ID --vpc-id $VPC_ID #>
 echo "Adding IG to main VPC routing"
 
 echo "Done. All new VPC."
-echo "Attempting to add ingress on original RDS: "$ROXY_BASE_DBSG
-aws ec2 authorize-security-group-ingress --group-id $ROXY_BASE_DBSG --port $ROXY_BASE_RDS_PORT --protocol tcp --source-group $EC2SG_ID > lastBaseRDSIngress.res
-echo "Done."

@@ -10,7 +10,7 @@ lc_name='roxyLC-'$name_suffix
 asg1_name='roxyASG1-'$name_suffix
 asg2_name='roxyASG2-'$name_suffix
 echo "creating new LC with name: "$lc_name
-aws autoscaling create-launch-configuration --launch-configuration-name $lc_name --key-name $ROXY_BASE_KEYPAIR --image-id $ROXY_BASE_AMI --security-groups $sec_id --instance-type $ROXY_BASE_INSTANCE_TYPE
+aws autoscaling create-launch-configuration --launch-configuration-name $lc_name --key-name $ROXY_BASE_KEYPAIR --image-id $ROXY_BASE_AMI --security-groups $sec_id --instance-type $ROXY_BASE_INSTANCE_TYPE --associate-public-ip-address
 echo "{\"LCName\":\""$lc_name"\"}" > lastLC.res
 echo "Creating new auto scaling groups.  "
 # TODO handle reuse of existing ASG (lastASG)
