@@ -12,4 +12,5 @@ echo "Starting kill ELB"
 ./killELB.sh
 echo "Starting kill VPC"
 ./killVPC.sh
+#TODO cleanup the LC, TG
 echo "Done."
