@@ -37,9 +37,6 @@ What I did for TriNimbus App Container
 6) Created an 2 ASG for Target Group for 2 different AZs
 7) Setup unsecured ELB with Target Group
 8) Tested App from Web and it works
-9) create a certificate for trinimbus.andress.ca and install on ELB for SSL
------------------- STUCK... seems to be permission issues for both creating ACM certificates and importing PEM ------------------------
-10) Tested App from Web for HTTPS
 
 ------------------------------ THURSDAY --------------------------------------------
 1) created git
@@ -54,4 +51,13 @@ What I did for TriNimbus App Container
 
 ------------------------------------ WEDNESDAY ------------------------------------
 - finish full create
-- finish full teardown
+- partial tear down
+
+------------------------------------ THURSDAY -------------------------------
+- workarounds on RDS connectivity
+
+------------------------------------ FRIDAY -------------------------------
+- resolved CERT issue
+
+----------------------------------- SUNDAY ----------------------------------
+- completed tear down and cleanup scripts

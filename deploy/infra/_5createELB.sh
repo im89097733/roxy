@@ -15,5 +15,6 @@ echo "Creating and binding Listener(s) to LB"
 echo "HTTP"
 aws elbv2 create-listener --load-balancer-arn $lb_arn --protocol HTTP --port 80 --default-actions Type=forward,TargetGroupArn=$tg_arn > lastHHTPListener.res
 echo "Created HTTP listener"
-# TODO add the HTTPS listener
+echo "HTTPS"
+aws elbv2 create-listener --load-balancer-arn $lb_arn --protocol HTTPS --port 443 --certificates CertificateArn=$ROXY_BASE_TRINIMBUS_ANDRESS_CERT_ARN --default-actions Type=forward,TargetGroupArn=$tg_arn > lastHHTPSListener.res
 echo "Done."

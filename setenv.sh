@@ -20,4 +20,5 @@ export  ROXY_BASE_SUBNET4_CIDR="10.0.4.0/24"
 export  ROXY_BASE_RDS_PORT=3306
 export  ROXY_BASE_RDS_CLUSTER_ID="roxydb-cluster"
 export  ROXY_BASE_RDS_INSTANCE_ID="roxydb"
+export  ROXY_BASE_TRINIMBUS_ANDRESS_CERT_ARN="arn:aws:iam::272462672480:server-certificate/roxyCert"
 
